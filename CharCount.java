@@ -1,26 +1,24 @@
-public class CharCount {
-    public static void main(String[] args) {
-        String s ="apple";
-        System.out.println("string is "+s+"\n");
+import java.util.*;  
+public class CharCount {  
+    public static void main(String[] args) {  
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Please give a String : ");  
+        String str= sc.nextLine();  
+        Scanner sc1= new Scanner(System.in);
+        System.out.print("Please give a char to count occurence: ");  
+        char ch= sc1.next().charAt(0);
+        System.out.print("Total Number of occurence of '"+ch+"' is: "); 
+        System.out.println(countOccurence(str, ch));
+    }  
+    public static int countOccurence(String str, char ch){
+        char arr[] = new char[str.length()]; 
         int count=0;
-        char[] arr = new char[s.length()];
-        System.out.println("length of string is "+s.length());
-        for(int i = 0 ;i< s.length();i++)
-        {
-            arr[i]= s.charAt(i);
-        }
-       
-        for(int i=0;i<arr.length;i++){
-            count++;
-            for (int j=1;j<=arr.length-1;j++ ){
-                if(arr[i]==arr[j]) 
-                {
-                    count++;
-                }
-                break;
+        for(int i=0; i<str.length();i++ ){
+            arr[i] = str.charAt(i);
+            if(arr[i]==ch){
+                count++;
             }
-            System.out.println("occurance of"+arr[i]+"\n"+count);
-            count=0;
         }
-    }
-}
+        return count;
+     }
+}   
